@@ -310,7 +310,7 @@ export default function Home() {
 
   function handleInsights() {
     callFunction<any>(
-      "/api/insights",
+      "/insights",
       (data) => {
         if (data && Array.isArray(data.averages)) {
           setBarSource(data.averages);
@@ -326,7 +326,7 @@ export default function Home() {
 
   function handleRecipes() {
     callFunction<any>(
-      "/api/recipes",
+      "/recipes",
       (data) => {
         const rows = Array.isArray(data) && data.length ? (data as Recipe[]) : generateRecipes(24);
         setAllRecipes(rows);
@@ -337,7 +337,7 @@ export default function Home() {
 
   function handleClusters() {
     callFunction<any>(
-      "/api/clusters",
+      "/clusters",
       (data) => {
         if (data && Array.isArray(data.clusters)) {
           setBarSource(
