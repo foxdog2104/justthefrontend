@@ -287,7 +287,7 @@ export default function Home() {
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 8000);
-      const res = await fetch(apiBase.replace(/\/$/, "") + route, { signal: controller.signal });
+      const res = await fetch(apiBase.replace(/\/$/, "") + route);
       clearTimeout(timeout);
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
